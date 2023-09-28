@@ -1,0 +1,32 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Crypto Data</title>
+</head>
+<body>
+    <header>
+        <h1>Cryptoverse</h1>
+        <form id="searchForm" action="/search" method="get">
+            <input type="text" name="q" id="searchInput" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <main>
+        <div id="cryptoList">
+            <% cryptoData.forEach(crypto => { %>
+                <div class="crypto-card">
+                    <h2><%= crypto.name %></h2>
+                    <p>Symbol: <%= crypto.symbol %></p>
+                    <p>Price: $<%= crypto.current_price %></p>
+                    <p>Market Cap: $<%= crypto.market_cap %></p>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>
+
